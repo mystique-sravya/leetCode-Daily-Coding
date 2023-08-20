@@ -7,7 +7,7 @@ class Solution(object):
         ns = ""
         for i in s:
             print(ord(i))
-            if ord(i) in range(65, 91):
+            if i >= 'A' and i <= 'Z':
                 ns += chr(ord(i)+32)
             else:
                 ns += i

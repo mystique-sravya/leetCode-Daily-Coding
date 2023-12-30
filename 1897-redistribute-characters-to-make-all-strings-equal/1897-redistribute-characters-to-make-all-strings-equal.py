@@ -1,13 +1,16 @@
 class Solution:
     def makeEqual(self, words: List[str]) -> bool:
-        length = len(words)
-        char_count = Counter()
-        
+        char_count = {}
+        total_strings = len(words)
+
+        # Count occurrences of each character
         for word in words:
-            char_count.update(word)
-        
+            for char in word:
+                char_count[char] = char_count.get(char, 0) + 1
+
+        # Check if each character count is divisible by the number of strings
         for count in char_count.values():
-            if count % length != 0:
+            if count % total_strings != 0:
                 return False
-        
+
         return True
